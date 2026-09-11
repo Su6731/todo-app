@@ -33,3 +33,28 @@ form.addEventListener('submit',(e)=>{
     render();
 });
 render();
+const filters= document.querySelector('.filters');
+let currentFilter ='all';
+render=()=>{
+    list.innnerHTML='';
+    const shown =tasks.filter(t=>
+        currentFilter==='all'?true:
+        currentFilter==='active'?!t.done:t.done);
+    if(shown.length===0){
+        const li=document.createElement('li');
+        li.textContent='没有符合条件的成员';
+        list.appendChild(li);
+        return;
+    
+    }
+    shown.forEach(task=>{
+        const li=document.createElement('li');
+        li.textContent=task.text;
+        if(task.done)li.classList.add('done');
+        li.addEventListener('click',()=>{
+            task.done=!task.done;
+            render();
+        });
+        list.appendChild(li);
+    });
+};
