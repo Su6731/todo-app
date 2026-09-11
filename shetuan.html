@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>社团人员管理</title>
+    <title>社团成员管理</title>
     <style>
         *{box-sizing: border-box;}
         body{font-family: sans-serif;max-width:480px;margin:24px auto;padding:0 16px;}
-        li.done{text-decoration:line-through;color:#999}
-        .del{margin-left:12px;cursor:pointer}
-        .tip{color:#c00;font-size: 14px;min-height: 20px;}
-        .filter{margin:12px 0}
-        .filter button{margin-right:8px}    
+        ul{list-style:none;padding-left:0}
+        li{padding:8px 0;border-bottom:1px solid #eee}
+        .meta{color:#666;font-size:13px;margin-left:8px}
+        .btn{margin-left:8px;cursor:pointer}
+        .tip{color:#c00;font-size:14px;min-height:20px;}
+        form,.search{display:flex;gap:8px;margin-bottom:8px}
+        form input,.search input{flex:1;padding:6px}
     </style>
 </head>
 <body>
-    <h1>社团管理</h1>
+    <h1>社团成员管理</h1>
     <form id="add-form">
-        <input type="text" id="task-input" placeholder="要做什么?">
-        <button type ="submit">添加</button>
+        <input type="text" id="name-input" placeholder="姓名">
+        <input type="text" id="grade-input" placeholder="年级">
+        <input type="text" id="dept-input" placeholder="部门">
+        <button type="submit" id="submit-btn">添加</button>
     </form>
     <p class="tip" id="tip"></p>
-    <u1 id="task-list"></u1>
+    <div class="search">
+        <input type="text" id="search-input" placeholder="按姓名搜索成员">
+    </div>
+    <ul id="member-list"></ul>
     <script src="shetuan.js"></script>
-    <div class="filters">
-  <button data-filter="all">全部</button>
-  <button data-filter="active">未完成</button>
-  <button data-filter="done">已完成</button>
-</div>
 </body>
 </html>
