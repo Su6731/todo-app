@@ -2,7 +2,9 @@ const form=document.querySelector('#add-form');
 const input= document.querySelector('#task-input');
 const tip=document.querySelector('#tip');
 const list=document.querySelector('#task-list');
-let tasks=[];
+let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+
+const save = () => localStorage.setItem('tasks', JSON.stringify(tasks));
 const render=()=>{
     list.innerHTML='';
     if(tasks.length===0){
